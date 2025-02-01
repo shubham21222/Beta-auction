@@ -5,13 +5,13 @@ function HeroContent() {
   return (
     <FadeInStaggerTwo className="flex flex-col items-center justify-center text-center">
       <FadeInStaggerTwoChildren>
-        <p className="text-lg font-semibold text-yellow-400 mb-4">
+        <p className="text-base sm:text-lg font-semibold text-yellow-400 mb-4">
           <span>Your trusted auction consultants</span>
         </p>
       </FadeInStaggerTwoChildren>
 
       <FadeInStaggerTwoChildren>
-        <h1 className="text-5xl md:text-6xl font-bold text-white mb-8">
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold text-white mb-8">
           Transforming your auctions into
           <span className="relative inline-block">
             <span className="text-yellow-400">experiences</span>
@@ -21,7 +21,7 @@ function HeroContent() {
       </FadeInStaggerTwoChildren>
 
       <FadeInStaggerTwoChildren>
-        <p className="text-lg text-gray-200 max-w-2xl mx-auto mb-12">
+        <p className="text-sm sm:text-lg text-gray-200 max-w-2xl mx-auto mb-12">
           We&apos;re dedicated to helping you discover and acquire rare, valuable, and unique items. With years of
           expertise in auctions, we provide tailored solutions to meet your collecting and investment needs.
         </p>

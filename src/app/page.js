@@ -7,13 +7,13 @@ import AboutUs from "./components/Aboutus";
 import StatsSection from "./components/StatsSection";
 import Footer from "./components/Footer";
 import TrendingBrands from "./components/TrendingBrands";
-import NewsletterForm from "./components/NewsletterForm"
+import NewsletterForm from "./components/NewsletterForm";
 
 export default function Home() {
   return (
     <>
       <Header />
-      <div className="relative mx-[50px] lg:mx-[50px] md:mx-[30px] sm:mx-[12px] mt-[120px] rounded-[20px] overflow-hidden h-[600px] lg:h-[700px]">
+      <div className="relative mx-auto  max-w-[100vw] lg:mx-[50px] md:mx-[30px] sm:mx-[12px] mt-[120px] rounded-[20px] overflow-hidden h-[400px] sm:h-[500px] lg:h-[700px]">
         {/* Background image */}
         <Image
           src={HeroBg}
@@ -38,10 +38,8 @@ export default function Home() {
       <HeroThumbs />
       <StatsSection />
       <TrendingBrands />
-      <TrendingBrands />
       <NewsletterForm />
       <Footer />
-
     </>
   );
 }

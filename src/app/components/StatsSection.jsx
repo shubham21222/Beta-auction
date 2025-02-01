@@ -3,22 +3,22 @@ import Image from "next/image";
 
 const stats = [
   {
-    icon: "https://beta.nyelizabeth.com/wp-content/uploads/2024/03/bar-chart-1-Traced.png",
+    icon: "../../bar-chart.svg",
     value: "14,000+",
     label: "Active Bidders",
   },
   {
-    icon: "https://beta.nyelizabeth.com/wp-content/uploads/2024/03/Frame-18.png",
+    icon: "../../country.svg",
     value: "18+",
     label: "Countries",
   },
   {
-    icon: "https://beta.nyelizabeth.com/wp-content/uploads/2024/03/Frame-20.png",
+    icon: "../../a1.svg",
     value: "$1b",
     label: "In Bids",
   },
   {
-    icon: "https://beta.nyelizabeth.com/wp-content/uploads/2024/03/Frame-2.png",
+    icon: "../../a2.svg",
     value: "600+",
     label: "Auctions",
   },
@@ -30,7 +30,7 @@ const StatsSection = () => {
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
         {stats.map((stat, index) => (
           <div key={index} className="flex flex-col items-center">
-            <div className="relative w-16 h-16 mb-4">
+            <div className="relative w-16 h-16 mb-4 text-white">
               <Image
                 src={stat.icon}
                 alt={stat.label}
