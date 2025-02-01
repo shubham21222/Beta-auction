@@ -6,6 +6,8 @@ import HeroBg from "../../public/hero-bg.png";
 import AboutUs from "./components/Aboutus";
 import StatsSection from "./components/StatsSection";
 import Footer from "./components/Footer";
+import TrendingBrands from "./components/TrendingBrands";
+import NewsletterForm from "./components/NewsletterForm";
 
 export default function Home() {
   return (
@@ -33,9 +35,13 @@ export default function Home() {
         </div>
       </div>
       <AboutUs />
-      <StatsSection />
       <HeroThumbs />
+      <StatsSection />
+      <TrendingBrands />
+      <TrendingBrands />
+      <NewsletterForm />
       <Footer />
+
     </>
   );
 }

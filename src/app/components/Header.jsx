@@ -78,17 +78,23 @@ const Header = () => {
             className={`hidden md:flex space-x-6 text-sm sm:text-base items-center font-medium ${isScrolled ? "text-black" : "text-black"
               }`}
           >
-            <Link href="/about" className="hover:text-purple-600">
-              About
+            <Link href="/Auctions" className="hover:text-purple-600">
+              Auctions
             </Link>
-            <Link href="https://nyelizabeth.com/terms" target='_blank' className="hover:text-purple-600">
-              Terms & Conditions
+            <Link href="/Buy-now"  className="hover:text-purple-600">
+              Buy Now
             </Link>
             <Link
               href="https://www.liveauctioneers.com/auctioneer/6177/ny-elizabeth/" target='_blank'
               className="hover:text-purple-600"
             >
-              Bid on Live Auctioneers
+              Private Sales
+            </Link>
+            <Link
+              href="https://www.liveauctioneers.com/auctioneer/6177/ny-elizabeth/" target='_blank'
+              className="hover:text-purple-600"
+            >
+              Sell
             </Link>
 
             <Link href="https://beta.nyelizabeth.com/buy-now/" target='_blank'>
