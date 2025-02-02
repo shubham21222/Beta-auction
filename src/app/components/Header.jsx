@@ -91,7 +91,7 @@ const Header = () => {
               Private Sales
             </Link>
             <Link
-              href="https://www.liveauctioneers.com/auctioneer/6177/ny-elizabeth/" target='_blank'
+              href="/Sell" 
               className="hover:text-purple-600"
             >
               Sell
