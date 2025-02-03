@@ -9,6 +9,11 @@ import UploadPhotosDocuments from "./components/UploadPhotosDocuments";
 import ContactLogisticsForm from "./components/ContactLogisticsForm";
 import ReviewInformation from "./components/ReviewInformation";
 import ItemForm2 from "./Watches/ItemForm";
+import ReviewInformation2 from "./Watches/ReviewInformation2";
+import ItemForm3 from "./fashion/ItemForm3";
+import ReviewInformation3 from "./fashion/ReviewInformation3";
+import ItemForm4 from "./automotive/ItemForm4";
+import ReviewInformation4 from "./automotive/ReviewInformation4";
 
 export default function Home() {
     const [currentStep, setCurrentStep] = useState(1);
@@ -71,6 +76,105 @@ export default function Home() {
 
                     {currentStep === 4 && selectedCategory === "Watches" && (
                         <ContactLogisticsForm
+                            setCurrentStep={setCurrentStep}
+                            selectedCategory={selectedCategory}
+                        />
+                    )}
+
+
+                    {currentStep === 5 && selectedCategory === "Watches" && (
+                        <ReviewInformation2
+                            setCurrentStep={setCurrentStep}
+                            selectedCategory={selectedCategory}
+                        />
+                    )}
+
+
+                    {currentStep === 2 && selectedCategory === "Jewelry" && (
+                        <ItemForm2
+                            setCurrentStep={setCurrentStep}
+                            selectedCategory={selectedCategory}
+                        />
+                    )}
+
+
+                    {currentStep === 3 && selectedCategory === "Jewelry" && (
+                        <UploadPhotosDocuments
+                            setCurrentStep={setCurrentStep}
+                            selectedCategory={selectedCategory}
+                        />
+                    )}
+
+                    {currentStep === 4 && selectedCategory === "Jewelry" && (
+                        <ContactLogisticsForm
+                            setCurrentStep={setCurrentStep}
+                            selectedCategory={selectedCategory}
+                        />
+                    )}
+
+
+                    {currentStep === 5 && selectedCategory === "Jewelry" && (
+                        <ReviewInformation2
+                            setCurrentStep={setCurrentStep}
+                            selectedCategory={selectedCategory}
+                        />
+                    )}
+
+                    {currentStep === 2 && selectedCategory === "Fashion" && (
+                        <ItemForm3
+                            setCurrentStep={setCurrentStep}
+                            selectedCategory={selectedCategory}
+                        />
+                    )}
+
+
+                    {currentStep === 3 && selectedCategory === "Fashion" && (
+                        <UploadPhotosDocuments
+                            setCurrentStep={setCurrentStep}
+                            selectedCategory={selectedCategory}
+                        />
+                    )}
+
+                    {currentStep === 4 && selectedCategory === "Fashion" && (
+                        <ContactLogisticsForm
+                            setCurrentStep={setCurrentStep}
+                            selectedCategory={selectedCategory}
+                        />
+                    )}
+
+
+                    {currentStep === 5 && selectedCategory === "Fashion" && (
+                        <ReviewInformation3
+                            setCurrentStep={setCurrentStep}
+                            selectedCategory={selectedCategory}
+                        />
+                    )}
+
+
+                    {currentStep === 2 && selectedCategory === "Automotives" && (
+                        <ItemForm4
+                            setCurrentStep={setCurrentStep}
+                            selectedCategory={selectedCategory}
+                        />
+                    )}
+
+                    {currentStep === 3 && selectedCategory === "Automotives" && (
+                        <UploadPhotosDocuments
+                            setCurrentStep={setCurrentStep}
+                            selectedCategory={selectedCategory}
+                        />
+                    )}
+
+                    {currentStep === 4 && selectedCategory === "Automotives" && (
+                        <ContactLogisticsForm
+                            setCurrentStep={setCurrentStep}
+                            selectedCategory={selectedCategory}
+                        />
+                    )}
+
+
+                    {currentStep === 5 && selectedCategory === "Automotives" && (
+                        <ReviewInformation4
                             setCurrentStep={setCurrentStep}
                             selectedCategory={selectedCategory}
                         />

@@ -126,12 +126,10 @@ export default function ItemForm2({ setCurrentStep }) {
               </div>
             </div>
 
-            {/* Notes Section */}
             <h3 className="text-xl font-semibold">Notes</h3>
             <Label>Additional Details</Label>
             <Textarea placeholder="Enter any additional details" />
 
-            {/* Buttons */}
             <div className="flex justify-between mt-6">
               <Button onClick={() => setCurrentStep(1)} variant="outline">Back</Button>
               <Button onClick={() => setCurrentStep(3)}>Continue</Button>

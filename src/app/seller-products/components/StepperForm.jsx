@@ -13,6 +13,8 @@ const categories = [
     { name: "Jewelry", img: "/jewelry.png" },
     { name: "Fashion", img: "/fashion.png" },
     { name: "Automotives", img: "/automotives.png" },
+    { name: "Modern Art", img: "/modern-art.png" },
+    { name: "Trading Cards", img: "/trading-card.png" },
 ];
 
 export default function StepperForm({ selectedCategory, setSelectedCategory, setCurrentStep }) {
@@ -21,7 +23,7 @@ export default function StepperForm({ selectedCategory, setSelectedCategory, set
     const progressValue = (currentStep / steps.length) * 100;
 
     const handleContinue = () => {
-        if ((selectedCategory === "Fine Art" || selectedCategory === "Watches") && currentStep === 1) {
+        if ((selectedCategory === "Fine Art" || selectedCategory === "Watches" || selectedCategory === "Jewelry" || selectedCategory === "Fashion" || selectedCategory === "MOdern Art" || selectedCategory === "Trading Cards" || selectedCategory === "Automotives") && currentStep === 1) {
             setCurrentStep(2); // Move to "Information" step only when "Continue" is clicked
         }
     };
@@ -38,11 +40,10 @@ export default function StepperForm({ selectedCategory, setSelectedCategory, set
                 {steps.map((step, index) => (
                     <div key={index} className="flex items-center space-x-2">
                         <div
-                            className={`w-8 h-8 flex items-center justify-center rounded-full border-2 transition-all ${
-                                index < currentStep
-                                    ? "bg-blue-500 text-white border-blue-500"
-                                    : "border-gray-400 text-gray-500"
-                            }`}
+                            className={`w-8 h-8 flex items-center justify-center rounded-full border-2 transition-all ${index < currentStep
+                                ? "bg-blue-500 text-white border-blue-500"
+                                : "border-gray-400 text-gray-500"
+                                }`}
                         >
                             {index < currentStep ? (
                                 <CheckCircle size={16} className="text-white" />
@@ -51,9 +52,8 @@ export default function StepperForm({ selectedCategory, setSelectedCategory, set
                             )}
                         </div>
                         <span
-                            className={`text-sm font-medium ${
-                                index < currentStep ? "text-blue-500" : "text-gray-500"
-                            }`}
+                            className={`text-sm font-medium ${index < currentStep ? "text-blue-500" : "text-gray-500"
+                                }`}
                         >
                             {step}
                         </span>
@@ -70,11 +70,10 @@ export default function StepperForm({ selectedCategory, setSelectedCategory, set
                 {categories.map((category, index) => (
                     <Card
                         key={index}
-                        className={`p-4 cursor-pointer transition-all ${
-                            selectedCategory === category.name
-                                ? "border-blue-500 bg-blue-100"
-                                : "hover:bg-gray-100"
-                        }`}
+                        className={`p-4 cursor-pointer transition-all ${selectedCategory === category.name
+                            ? "border-blue-500 bg-blue-100"
+                            : "hover:bg-gray-100"
+                            }`}
                         onClick={() => setSelectedCategory(category.name)}
                     >
                         <div className="flex items-center justify-between">
