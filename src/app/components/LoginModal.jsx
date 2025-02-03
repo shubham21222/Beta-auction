@@ -15,27 +15,27 @@ const LoginModal = ({ isOpen, onClose }) => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50"
+          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 p-4"
         >
           <motion.div
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -50, opacity: 0 }}
-            className="flex bg-white rounded-lg shadow-lg w-full max-w-3xl overflow-hidden relative"
+            className="flex flex-col md:flex-row bg-white rounded-lg shadow-lg w-full max-w-[90%] md:max-w-3xl overflow-hidden relative"
           >
             {/* Left Side - Image */}
-            <div className="w-1/2 relative">
+            <div className="w-full md:w-1/2 h-48 md:h-auto relative">
               <Image
                 src={login}
                 alt="Login Background"
                 layout="fill"
                 objectFit="cover"
-                className="rounded-l-lg"
+                className="rounded-t-lg md:rounded-l-lg md:rounded-tr-none"
               />
             </div>
 
             {/* Right Side - Login Form */}
-            <div className="w-1/2 p-8 relative">
+            <div className="w-full md:w-1/2 p-6 md:p-8 relative">
               {/* Close Button */}
               <button
                 onClick={onClose}
@@ -56,9 +56,9 @@ const LoginModal = ({ isOpen, onClose }) => {
                   alt="Logo"
                   width={80}
                   height={80}
-                  className="mb-4"
+                  className="mb-4 w-16 h-16 md:w-20 md:h-20"
                 />
-                <h2 className="text-2xl font-semibold text-gray-800 mb-2">Log in to your account</h2>
+                <h2 className="text-xl md:text-2xl font-semibold text-gray-800 mb-2">Log in to your account</h2>
                 <p className="text-sm text-gray-600 mb-6">Welcome back! Please enter your details.</p>
               </motion.div>
 
@@ -74,7 +74,7 @@ const LoginModal = ({ isOpen, onClose }) => {
                   <input
                     type="email"
                     placeholder="Enter your email"
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm md:text-base"
                   />
                 </div>
                 <div>
@@ -83,7 +83,7 @@ const LoginModal = ({ isOpen, onClose }) => {
                     <input
                       type={showPassword ? 'text' : 'password'}
                       placeholder="Enter your password"
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all text-sm md:text-base"
                     />
                     <button
                       type="button"
@@ -97,7 +97,7 @@ const LoginModal = ({ isOpen, onClose }) => {
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white py-2.5 rounded-lg hover:opacity-90 transition-all duration-300"
+                  className="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white py-2.5 rounded-lg hover:opacity-90 transition-all duration-300 text-sm md:text-base"
                 >
                   Login
                 </motion.button>
