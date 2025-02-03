@@ -34,7 +34,7 @@ export default function AboutUs() {
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900">
               About Us
             </h2>
-            <p className="text-base md:text-lg text-gray-600">
+            <p className="text-base md:text-lg text-gray-600 w-[94%]">
               At <span className="font-semibold text-yellow-500">Auction House</span>, we are passionate about connecting collectors, investors, and enthusiasts with rare and valuable items. With decades of experience in the auction industry, we pride ourselves on delivering exceptional service and unparalleled expertise.
             </p>
             <div className="space-y-4">
@@ -51,7 +51,7 @@ export default function AboutUs() {
                   <span className="text-white text-xl md:text-2xl">✓</span>
                 </div>
                 <p className="text-base md:text-lg text-gray-600">
-                  Expertise in fine art, antiques, and luxury collectibles.
+                  Expertise in antiques, and luxury collectibles.
                 </p>
               </div>
             </div>
@@ -73,7 +73,7 @@ export default function AboutUs() {
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900">
               Our Mission
             </h2>
-            <p className="text-base md:text-lg text-gray-600">
+            <p className="text-base md:text-lg text-gray-600 w-[94%]">
               Our mission is to make auctions accessible, transparent, and enjoyable for everyone. Whether you're a seasoned collector or a first-time bidder, we're here to guide you every step of the way.
             </p>
             <div className="space-y-4">
@@ -90,7 +90,7 @@ export default function AboutUs() {
                   <span className="text-white text-xl md:text-2xl">✓</span>
                 </div>
                 <p className="text-base md:text-lg text-gray-600">
-                  Professional valuation and authentication services.
+                  Professional valuation,authentication services.
                 </p>
               </div>
             </div>
