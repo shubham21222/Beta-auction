@@ -14,6 +14,10 @@ import ItemForm3 from "./fashion/ItemForm3";
 import ReviewInformation3 from "./fashion/ReviewInformation3";
 import ItemForm4 from "./automotive/ItemForm4";
 import ReviewInformation4 from "./automotive/ReviewInformation4";
+import ItemForm5 from "./modern-art/ItemForm5";
+import ReviewInformation5 from "./modern-art/ReviewInformation5";
+import ItemForm6 from "./trading-cards/ItemForm6";
+import ReviewInformation6 from "./trading-cards/ReviewInformation6";
 
 export default function Home() {
     const [currentStep, setCurrentStep] = useState(1);
@@ -175,6 +179,65 @@ export default function Home() {
 
                     {currentStep === 5 && selectedCategory === "Automotives" && (
                         <ReviewInformation4
+                            setCurrentStep={setCurrentStep}
+                            selectedCategory={selectedCategory}
+                        />
+                    )}
+
+
+                    {currentStep === 2 && selectedCategory === "Modern Art" && (
+                        <ItemForm5
+                            setCurrentStep={setCurrentStep}
+                            selectedCategory={selectedCategory}
+                        />
+                    )}
+
+                    {currentStep === 3 && selectedCategory === "Modern Art" && (
+                        <UploadPhotosDocuments
+                            setCurrentStep={setCurrentStep}
+                            selectedCategory={selectedCategory}
+                        />
+                    )}
+
+                    {currentStep === 4 && selectedCategory === "Modern Art" && (
+                        <ContactLogisticsForm
+                            setCurrentStep={setCurrentStep}
+                            selectedCategory={selectedCategory}
+                        />
+                    )}
+
+
+                    {currentStep === 5 && selectedCategory === "Modern Art" && (
+                        <ReviewInformation5
+                            setCurrentStep={setCurrentStep}
+                            selectedCategory={selectedCategory}
+                        />
+                    )}
+
+                    {currentStep === 2 && selectedCategory === "Trading Cards" && (
+                        <ItemForm6
+                            setCurrentStep={setCurrentStep}
+                            selectedCategory={selectedCategory}
+                        />
+                    )}
+
+                    {currentStep === 3 && selectedCategory === "Trading Cards" && (
+                        <UploadPhotosDocuments
+                            setCurrentStep={setCurrentStep}
+                            selectedCategory={selectedCategory}
+                        />
+                    )}
+
+                    {currentStep === 4 && selectedCategory === "Trading Cards" && (
+                        <ContactLogisticsForm
+                            setCurrentStep={setCurrentStep}
+                            selectedCategory={selectedCategory}
+                        />
+                    )}
+
+
+                    {currentStep === 5 && selectedCategory === "Trading Cards" && (
+                        <ReviewInformation6
                             setCurrentStep={setCurrentStep}
                             selectedCategory={selectedCategory}
                         />

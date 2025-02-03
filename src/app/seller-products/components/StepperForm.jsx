@@ -23,7 +23,7 @@ export default function StepperForm({ selectedCategory, setSelectedCategory, set
     const progressValue = (currentStep / steps.length) * 100;
 
     const handleContinue = () => {
-        if ((selectedCategory === "Fine Art" || selectedCategory === "Watches" || selectedCategory === "Jewelry" || selectedCategory === "Fashion" || selectedCategory === "MOdern Art" || selectedCategory === "Trading Cards" || selectedCategory === "Automotives") && currentStep === 1) {
+        if ((selectedCategory === "Fine Art" || selectedCategory === "Watches" || selectedCategory === "Jewelry" || selectedCategory === "Fashion" || selectedCategory === "Modern Art" || selectedCategory === "Trading Cards" || selectedCategory === "Automotives") && currentStep === 1) {
             setCurrentStep(2); // Move to "Information" step only when "Continue" is clicked
         }
     };
