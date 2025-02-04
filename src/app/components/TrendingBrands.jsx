@@ -1,14 +1,18 @@
 import React from "react";
 import Image from "next/image";
+import rolex from "../../../public/rolex.webp";
+import louis from "../../../public/Louis.webp";
+import Hermes from "../../../public/Hermes.webp";
+
 
 const brands = [
   {
     name: "Rolex",
-    logo: "https://beta.nyelizabeth.com/wp-content/uploads/2024/03/Group-5.png",
+    logo: rolex,
   },
   {
     name: "Hermès Paris",
-    logo: "https://beta.nyelizabeth.com/wp-content/uploads/2024/03/Hermes-1.png",
+    logo: Hermes,
   },
   {
     name: "Patek Philippe",
@@ -16,7 +20,7 @@ const brands = [
   },
   {
     name: "Louis Vuitton",
-    logo: "https://beta.nyelizabeth.com/wp-content/uploads/2024/03/Louis_Vuitton_logo-1.png",
+    logo: louis,
   },
 ];
 

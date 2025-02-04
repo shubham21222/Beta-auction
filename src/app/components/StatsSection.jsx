@@ -1,24 +1,24 @@
 import React from "react";
-import Image from "next/image";
+import { BarChart, Globe, DollarSign, Gavel } from "lucide-react";
 
 const stats = [
   {
-    icon: "../../bar-chart.svg",
+    icon: <BarChart size={64} className="text-white" />, // Lucide icon for "Active Bidders"
     value: "14,000+",
     label: "Active Bidders",
   },
   {
-    icon: "../../country.svg",
+    icon: <Globe size={64} className="text-white" />, // Lucide icon for "Countries"
     value: "18+",
     label: "Countries",
   },
   {
-    icon: "../../a1.svg",
+    icon: <DollarSign size={64} className="text-white" />, // Lucide icon for "In Bids"
     value: "$1b",
     label: "In Bids",
   },
   {
-    icon: "../../a2.svg",
+    icon: <Gavel size={64} className="text-white" />, // Lucide icon for "Auctions"
     value: "600+",
     label: "Auctions",
   },
@@ -30,18 +30,13 @@ const StatsSection = () => {
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
         {stats.map((stat, index) => (
           <div key={index} className="flex flex-col items-center">
-            <div className="relative w-16 h-16 mb-4 text-white">
-              <Image
-                src={stat.icon}
-                alt={stat.label}
-                fill
-                sizes="(max-width: 768px) 100vw, 
-                       (max-width: 1200px) 50vw, 
-                       25vw"
-                style={{ objectFit: "contain" }}
-              />
-            </div>
+            {/* Icon */}
+            <div className="mb-4">{stat.icon}</div>
+
+            {/* Value */}
             <h3 className="text-3xl font-semibold">{stat.value}</h3>
+
+            {/* Label */}
             <p className="text-xl mt-2">{stat.label}</p>
           </div>
         ))}
