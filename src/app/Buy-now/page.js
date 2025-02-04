@@ -9,21 +9,23 @@ import { SlidersHorizontal } from "lucide-react"
 const products = [
   {
     image: "https://beta.nyelizabeth.com/wp-content/uploads/2025/01/product4ccd551f28184638f7c306b6172c7158.webp",
-    name: "Hermès kelly picnic mini",
+    name: "Hermès Kelly Picnic Mini",
     price: 45807,
+    slug: "hermes-kelly-picnic-mini-swift-willow-blue-du-nord-silver-metal-fittings", // Unique slug for this product
   },
   {
     image: "https://beta.nyelizabeth.com/wp-content/uploads/2025/01/product612dfd189b8b384cb5fbcf7319435a69.webp",
     name: "Cartier Love Pavé",
     price: 32355,
+    slug: "cartier-love-pave-diamond-bracelet-750-yg", // Unique slug for this product
   },
   {
     image: "https://beta.nyelizabeth.com/wp-content/uploads/2025/01/productf0cc116dd0ca1729dcaf90f1aee103e8.webp",
     name: "Tiffany Jean Schlumberger",
     price: 32554,
+    slug: "tiffany-jean-schlumberger-apollo-diamond-brooch", // Unique slug for this product
   },
-  // Add more products as needed
-]
+];
 
 export default function Home() {
   return (
@@ -31,9 +33,9 @@ export default function Home() {
     <Header />
     <main className="min-h-screen bg-gradient-to-br from-gray-50 pt-[80px] to-gray-100">
       <div className="container mx-auto px-6 py-12">
-        <CategoryNav />
+        {/* <CategoryNav /> */}
 
-        <div className="mt-12 flex flex-col md:flex-row gap-8">
+        <div className="mt-4 flex flex-col md:flex-row gap-8">
           <aside className="w-full md:w-72 shrink-0">
             <Filters />
           </aside>

@@ -2,11 +2,12 @@
 
 import { Heart, Share2 } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link" // Import Link for navigation
 import { useState } from "react"
 import { cn } from "@/lib/utils"
 import { motion, AnimatePresence } from "framer-motion"
 
-export function ProductCard({ image, name, price }) {
+export function ProductCard({ image, name, price, slug }) {
   const [isLiked, setIsLiked] = useState(false)
   const [isHovered, setIsHovered] = useState(false)
 
@@ -61,13 +62,15 @@ export function ProductCard({ image, name, price }) {
               exit={{ opacity: 0, y: 20 }}
               className="absolute bottom-0 left-0 right-0 p-4"
             >
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full py-3 bg-white/90 backdrop-blur-sm rounded-xl font-semibold hover:bg-white transition-all duration-300"
-              >
-                View Details
-              </motion.button>
+              <Link href={`/products/${slug}`}> {/* Navigate to the product page */}
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full py-3 bg-white/90 backdrop-blur-sm rounded-xl font-semibold hover:bg-white transition-all duration-300"
+                >
+                  View Details
+                </motion.button>
+              </Link>
             </motion.div>
           )}
         </AnimatePresence>

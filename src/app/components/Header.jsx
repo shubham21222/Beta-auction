@@ -88,8 +88,8 @@ const Header = () => {
                 Buy Now
               </Link>
               <Link
-                href="https://www.liveauctioneers.com/auctioneer/6177/ny-elizabeth/"
-                target="_blank"
+                href="/private-sales"
+                // target="_blank"
                 className="hover:text-purple-600"
               >
                 Private Sales
@@ -110,8 +110,8 @@ const Header = () => {
                     Buy Now
                   </Link>
                   <Link
-                    href="https://www.liveauctioneers.com/auctioneer/6177/ny-elizabeth/"
-                    target="_blank"
+                    href="/private-sales"
+                    // target="_blank"
                     className="hover:text-purple-600"
                   >
                     Private Sales
