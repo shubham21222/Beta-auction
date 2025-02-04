@@ -61,33 +61,61 @@ export default function ItemForm({ setCurrentStep, selectedCategory }) {
                 <Progress value={progressValue} className="h-2" />
             </div>
 
-            <div className="flex justify-between items-center mb-8 flex-wrap gap-4">
-                {steps.map((step, index) => (
-                    <div key={index} className="flex items-center space-x-2">
-                        <div
-                            className={`w-8 h-8 flex items-center justify-center rounded-full border-2 transition-all ${
-                                index < currentStep
-                                    ? "bg-blue-500 text-white border-blue-500"
-                                    : "border-gray-400 text-gray-500"
-                            }`}
-                        >
-                            {index < currentStep ? (
-                                <CheckCircle size={16} className="text-white" />
-                            ) : (
-                                <span className="text-sm">{index + 1}</span>
-                            )}
-                        </div>
-                        <span
-                            className={`text-sm font-medium ${
-                                index < currentStep ? "text-blue-500" : "text-gray-500"
-                            }`}
-                        >
-                            {step}
-                        </span>
-                        {index < steps.length - 1 && <div className="w-12 h-[2px] bg-gray-300"></div>}
-                    </div>
-                ))}
-            </div>
+            <div className="hidden sm:flex justify-between items-center mb-8">
+                           {steps.map((step, index) => (
+                               <div key={index} className="flex items-center space-x-2">
+                                   <div
+                                       className={`w-8 h-8 flex items-center justify-center rounded-full border-2 transition-all ${
+                                           index < currentStep
+                                               ? "bg-blue-500 text-white border-blue-500"
+                                               : "border-gray-400 text-gray-500"
+                                       }`}
+                                   >
+                                       {index < currentStep ? (
+                                           <CheckCircle size={16} className="text-white" />
+                                       ) : (
+                                           <span className="text-sm">{index + 1}</span>
+                                       )}
+                                   </div>
+                                   <span
+                                       className={`text-sm font-medium ${
+                                           index < currentStep ? "text-blue-500" : "text-gray-500"
+                                       }`}
+                                   >
+                                       {step}
+                                   </span>
+                                   {index < steps.length - 1 && <div className="w-12 h-[2px] bg-gray-300"></div>}
+                               </div>
+                           ))}
+                       </div>
+           
+                       {/* Mobile Stepper */}
+                       <div className="flex sm:hidden justify-between items-center mb-6">
+                           {steps.map((step, index) => (
+                               <div key={index} className="flex flex-col items-center">
+                                   <div
+                                       className={`w-6 h-6 flex items-center justify-center rounded-full border-2 transition-all ${
+                                           index < currentStep
+                                               ? "bg-blue-500 text-white border-blue-500"
+                                               : "border-gray-400 text-gray-500"
+                                       }`}
+                                   >
+                                       {index < currentStep ? (
+                                           <CheckCircle size={12} className="text-white" />
+                                       ) : (
+                                           <span className="text-xs">{index + 1}</span>
+                                       )}
+                                   </div>
+                                   <span
+                                       className={`text-xs font-medium mt-1 ${
+                                           index < currentStep ? "text-blue-500" : "text-gray-500"
+                                       }`}
+                                   >
+                                       {step}
+                                   </span>
+                               </div>
+                           ))}
+                       </div>
 
             {/* Show form only if "Fine Art" is selected */}
             {selectedCategory === "Fine Art" && (
