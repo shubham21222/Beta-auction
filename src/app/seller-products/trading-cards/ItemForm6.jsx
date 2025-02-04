@@ -20,7 +20,7 @@ export default function ItemForm6({ setCurrentStep }) {
 
     return (
         <>
-           <div className="hidden sm:flex justify-between items-center mb-8">
+           <div className="hidden sm:flex justify-between mt-[80px] items-center mb-8">
                           {steps.map((step, index) => (
                               <div key={index} className="flex items-center space-x-2">
                                   <div
