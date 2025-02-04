@@ -12,6 +12,7 @@ const Header = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showSignupModal, setShowSignupModal] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,11 +35,101 @@ const Header = () => {
 
   return (
     <>
+      {/* Top Bar */}
+      <div className="border-b z-50 relative">
+        <div className="container mx-auto px-4 h-10 flex items-center justify-between">
+          {/* Left Section: Language Selector */}
+          <div className="flex items-center gap-2">
+            <button className="hover:text-gray-600 text-sm">
+              <span>EN</span>
+              <span className="ml-1">▼</span>
+            </button>
+          </div>
+
+          {/* Right Section: Links and Buttons */}
+          <div className="hidden md:flex items-center gap-6 text-sm">
+            <Link href="#" className="hover:text-gray-600">
+              EXCLUSIVE ACCESS
+            </Link>
+            <Link href="#" className="hover:text-gray-600">
+              ABOUT
+            </Link>
+            <Link href="#" className="hover:text-gray-600">
+              PAST AUCTIONS
+            </Link>
+            <Link href="#" className="hover:text-gray-600">
+              FAQ
+            </Link>
+            <button
+              className="bg-[#002654] hover:bg-[#002654]/90 text-white rounded px-4 py-1 text-sm"
+            >
+              MY ACCOUNT ▼
+            </button>
+          </div>
+
+          {/* Mobile Menu Toggle */}
+          <div className="md:hidden z-50">
+            <button
+              className="text-gray-600 hover:text-gray-800 focus:outline-none"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+              )}
+            </button>
+          </div>
+
+          {/* Mobile Menu */}
+          {isMenuOpen && (
+            <div className="md:hidden absolute top-10 right-0 bg-white shadow-lg rounded-lg w-48 z-50">
+              <div className="flex flex-col space-y-2 p-4">
+                <Link href="#" className="hover:text-gray-600">
+                  EXCLUSIVE ACCESS
+                </Link>
+                <Link href="#" className="hover:text-gray-600">
+                  ABOUT
+                </Link>
+                <Link href="#" className="hover:text-gray-600">
+                  PAST AUCTIONS
+                </Link>
+                <Link href="#" className="hover:text-gray-600">
+                  FAQ
+                </Link>
+                <button
+                  className="bg-[#002654] hover:bg-[#002654]/90 text-white rounded px-4 py-1 text-sm mt-2"
+                >
+                  MY ACCOUNT ▼
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Main Header */}
       <header
-        className={`fixed top-4 left-0 z-[9999] right-0 transition-all duration-300 w-full max-w-screen-xl mx-auto ${isScrolled
+        className={`fixed top-9 left-0 z-40 right-0 transition-all duration-300 w-full max-w-screen-xl mx-auto ${isScrolled
           ? "bg-white/5 shadow-lg rounded-full text-black border border-white/18"
           : "bg-transparent text-white"
-        }`}
+          }`}
         style={{
           padding: isScrolled
             ? isMobile
@@ -64,7 +155,7 @@ const Header = () => {
                 />
               </Link>
               <button
-                className="md:hidden absolute right-0 p-2 text-black font-semibold"
+                className="md:hidden absolute right-0 p-2 text-black font-semibold z-50"
                 onClick={() => setMenuOpen(!menuOpen)}
                 aria-label="Toggle menu"
               >

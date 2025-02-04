@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import TrendingBrands from "./components/TrendingBrands";
 import NewsletterForm from "./components/NewsletterForm";
 import { ProductCard } from "./Buy-now/components/product-card";
+import PartnersSection from "./components/PartnersSection";
 
 export default function Home() {
 
@@ -37,7 +38,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <div className="relative mx-auto max-w-[100vw] lg:mx-[50px] md:mx-[30px] sm:mx-[12px] mt-[120px] rounded-[20px] overflow-hidden h-[85vh]">
+      <div className="relative mx-auto max-w-[100vw] lg:mx-[50px] md:mx-[30px] sm:mx-[12px] mt-[80px] rounded-[20px] overflow-hidden h-[85vh]">
         {/* Background image */}
         <Image
           src="https://beta.nyelizabeth.com/wp-content/uploads/2024/11/banner-Image2_3_11zon.webp"
@@ -67,6 +68,7 @@ export default function Home() {
       </div>
       <StatsSection />
       <TrendingBrands />
+      <PartnersSection />
       <NewsletterForm />
       <Footer />
     </>
