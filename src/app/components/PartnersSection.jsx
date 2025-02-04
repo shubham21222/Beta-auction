@@ -1,12 +1,16 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import img2 from "../../../public/1-3.webp"
+import img3 from "../../../public/1-4.webp"
+import img4 from "../../../public/1-5.webp"
+
 
 const partners = [
-  { name: "LOT TISSIMO", logo: "https://beta.nyelizabeth.com/wp-content/uploads/2024/03/Logo_Updated.png" },
-  { name: "the saleroom", logo: "https://beta.nyelizabeth.com/wp-content/uploads/2024/03/Mask-group-4.png" },
-  { name: "liveauctioneers", logo: "https://beta.nyelizabeth.com/wp-content/uploads/2024/03/logooo.png" },
-  { name: "IDSQUAR", logo: "https://beta.nyelizabeth.com/wp-content/uploads/2024/03/Logo_Updated.png" },
+  { name: "LOT TISSIMO", logo: img2 },
+  { name: "the saleroom", logo: img3 },
+  { name: "liveauctioneers", logo: img4 },
+  // { name: "IDSQUAR", logo: "https://beta.nyelizabeth.com/wp-content/uploads/2024/03/Logo_Updated.png" },
 ];
 
 const PartnersSection = () => {

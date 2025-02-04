@@ -10,6 +10,7 @@ import TrendingBrands from "./components/TrendingBrands";
 import NewsletterForm from "./components/NewsletterForm";
 import { ProductCard } from "./Buy-now/components/product-card";
 import PartnersSection from "./components/PartnersSection";
+import PopularArtists from "./components/Artsits";
 
 export default function Home() {
 
@@ -68,6 +69,7 @@ export default function Home() {
       </div>
       <StatsSection />
       <TrendingBrands />
+      <PopularArtists />
       <PartnersSection />
       <NewsletterForm />
       <Footer />
