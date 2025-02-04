@@ -23,7 +23,7 @@ const stats = [
     label: "Auctions",
   },
 ];
-
+  
 const StatsSection = () => {
   return (
     <section className="statsSection2 bg-gradient-to-r from-blue-900 to-blue-700 text-white py-20 mb-12 mt-12 container mx-auto max-w-screen-2xl px-4">
