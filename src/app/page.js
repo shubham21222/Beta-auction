@@ -16,7 +16,7 @@ export default function Home() {
       <div className="relative mx-auto  max-w-[100vw] lg:mx-[50px] md:mx-[30px] sm:mx-[12px] mt-[120px] rounded-[20px] overflow-hidden h-[400px] sm:h-[500px] lg:h-[700px]">
         {/* Background image */}
         <Image
-          src={HeroBg}
+          src="https://beta.nyelizabeth.com/wp-content/uploads/2024/11/banner-Image2_3_11zon.webp"
           alt="Hero Background"
           fill
           className="object-cover object-center"

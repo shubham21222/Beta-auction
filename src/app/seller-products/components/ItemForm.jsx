@@ -55,13 +55,13 @@ export default function ItemForm({ setCurrentStep, selectedCategory }) {
     const progressValue = 50; // Since this is step 2 out of 5
 
     return (
-        <div className="max-w-3xl mx-auto p-6 space-y-6">
+        <div className="max-w-3xl mx-auto mt-[80px] p-4 sm:p-6 space-y-6">
             {/* Progress Bar */}
             <div className="mb-8">
                 <Progress value={progressValue} className="h-2" />
             </div>
 
-            <div className="flex justify-between items-center mb-8">
+            <div className="flex justify-between items-center mb-8 flex-wrap gap-4">
                 {steps.map((step, index) => (
                     <div key={index} className="flex items-center space-x-2">
                         <div
@@ -91,14 +91,14 @@ export default function ItemForm({ setCurrentStep, selectedCategory }) {
 
             {/* Show form only if "Fine Art" is selected */}
             {selectedCategory === "Fine Art" && (
-                <div className="mt-6 p-6 border rounded-lg shadow-md">
-                    <h2 className="text-2xl font-semibold text-center">
+                <div className="mt-6 p-4 sm:p-6 border rounded-lg shadow-md">
+                    <h2 className="text-xl sm:text-2xl font-semibold text-center">
                         Tell us about your item
                     </h2>
 
                     {/* General Section */}
                     <div className="space-y-4 mt-4">
-                        <h3 className="text-lg font-medium">General</h3>
+                        <h3 className="text-lg sm:text-xl font-medium">General</h3>
                         <Input name="country" value={formData.country} placeholder="Item's Country of Origin" onChange={handleChange} />
                         <Input name="designer" value={formData.designer} placeholder="Designer / Maker" onChange={handleChange} />
                         <Textarea name="object" value={formData.object} placeholder="What is the object?" onChange={handleChange} />
@@ -108,7 +108,7 @@ export default function ItemForm({ setCurrentStep, selectedCategory }) {
 
                     {/* Measurements Section */}
                     <div className="space-y-4 mt-4">
-                        <h3 className="text-lg font-medium">Measurements</h3>
+                        <h3 className="text-lg sm:text-xl font-medium">Measurements</h3>
                         <div className="flex items-center space-x-2">
                             <Checkbox
                                 id="framed"
@@ -117,7 +117,7 @@ export default function ItemForm({ setCurrentStep, selectedCategory }) {
                             />
                             <label htmlFor="framed">Yes, it is framed</label>
                         </div>
-                        <div className="grid grid-cols-3 gap-2">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                             <Input name="framedHeight" value={formData.framedHeight} placeholder="Framed Height" onChange={handleChange} />
                             <Input name="framedWidth" value={formData.framedWidth} placeholder="Framed Width" onChange={handleChange} />
                             <Input name="framedDepth" value={formData.framedDepth} placeholder="Framed Depth" onChange={handleChange} />
@@ -129,7 +129,7 @@ export default function ItemForm({ setCurrentStep, selectedCategory }) {
 
                     {/* Condition Section */}
                     <div className="space-y-4 mt-4">
-                        <h3 className="text-lg font-medium">Condition</h3>
+                        <h3 className="text-lg sm:text-xl font-medium">Condition</h3>
                         <Input name="condition" value={formData.condition} placeholder="Signatures, Labels or Markings" onChange={handleChange} />
                         <Input name="damage" value={formData.damage} placeholder="Areas of Damage" onChange={handleChange} />
                         <Input name="restoration" value={formData.restoration} placeholder="Has it been restored?" onChange={handleChange} />
@@ -137,15 +137,15 @@ export default function ItemForm({ setCurrentStep, selectedCategory }) {
 
                     {/* Provenance Section */}
                     <div className="space-y-4 mt-4">
-                        <h3 className="text-lg font-medium">Provenance</h3>
+                        <h3 className="text-lg sm:text-xl font-medium">Provenance</h3>
                         <Input name="ownership" value={formData.ownership} placeholder="History of Ownership & How Acquired" onChange={handleChange} />
                         <Textarea name="appraisals" value={formData.appraisals} placeholder="Appraisals / Publications / Exhibitions" onChange={handleChange} />
                     </div>
 
                     {/* Price Section */}
                     <div className="space-y-4 mt-4">
-                        <h3 className="text-lg font-medium">Price</h3>
-                        <div className="grid grid-cols-3 gap-2">
+                        <h3 className="text-lg sm:text-xl font-medium">Price</h3>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                             <Input name="price" value={formData.price} placeholder="Price Paid" onChange={handleChange} />
                             <Select onValueChange={(value) => setFormData((prev) => ({ ...prev, currency: value }))} value={formData.currency}>
                                 <SelectTrigger className="w-full">
@@ -163,14 +163,18 @@ export default function ItemForm({ setCurrentStep, selectedCategory }) {
 
                     {/* Notes Section */}
                     <div className="space-y-4 mt-4">
-                        <h3 className="text-lg font-medium">Notes</h3>
+                        <h3 className="text-lg sm:text-xl font-medium">Notes</h3>
                         <Textarea name="notes" value={formData.notes} placeholder="Additional Details" onChange={handleChange} />
                     </div>
 
                     {/* Buttons */}
-                    <div className="flex justify-between mt-6">
-                        <Button variant="outline" onClick={() => setCurrentStep(1)}>Back</Button>
-                        <Button onClick={() => setCurrentStep(3)}>Continue</Button>
+                    <div className="flex flex-col sm:flex-row justify-between mt-6 gap-4">
+                        <Button variant="outline" onClick={() => setCurrentStep(1)} className="w-full sm:w-auto">
+                            Back
+                        </Button>
+                        <Button onClick={() => setCurrentStep(3)} className="w-full sm:w-auto">
+                            Continue
+                        </Button>
                     </div>
                 </div>
             )}

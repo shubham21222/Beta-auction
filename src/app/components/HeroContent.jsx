@@ -13,7 +13,7 @@ function HeroContent() {
       <FadeInStaggerTwoChildren>
         <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 sm:mb-8">
           Transforming your auctions into
-          <span className="relative inline-block">
+          <span className="relative inline-block pl-2">
             <span className="text-yellow-400">experiences</span>
             <span className="absolute -bottom-1 sm:-bottom-2 left-0 w-full h-1 sm:h-2 bg-yellow-400 rounded-full"></span>
           </span>
@@ -32,13 +32,13 @@ function HeroContent() {
           href="/contact-us"
           className="bg-yellow-400 text-gray-900 font-semibold px-4 sm:px-8 py-2 sm:py-3 rounded-full hover:bg-yellow-500 transition-colors duration-300 text-sm sm:text-base"
         >
-          Schedule a meeting
+          Explore Auctions
         </Link>
         <Link
           href="/portfolio-one"
           className="border-2 border-yellow-400 text-yellow-400 font-semibold px-4 sm:px-8 py-2 sm:py-3 rounded-full hover:bg-yellow-400 hover:text-gray-900 transition-colors duration-300 text-sm sm:text-base"
         >
-          View all auctions
+          Buy now
         </Link>
       </FadeInStaggerTwoChildren>
     </FadeInStaggerTwo>

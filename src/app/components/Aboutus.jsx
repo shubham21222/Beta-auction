@@ -35,7 +35,7 @@ export default function AboutUs() {
               About Us
             </h2>
             <p className="text-base md:text-lg text-gray-600">
-              At <span className="font-semibold text-yellow-500">Auction House</span>, we are passionate about connecting collectors, investors, and enthusiasts with rare and valuable items. With decades of experience in the auction industry, we pride ourselves on delivering exceptional service and unparalleled expertise.
+              At <span className="font-semibold text-yellow-500">NY Elizabeth</span>, we are passionate about connecting collectors, investors, and enthusiasts with rare and valuable items. With decades of experience in the auction industry, we pride ourselves on delivering exceptional service and unparalleled expertise.
             </p>
             <div className="space-y-4">
               <div className="flex items-center gap-4">
