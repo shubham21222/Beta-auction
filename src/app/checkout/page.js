@@ -1,33 +1,37 @@
 "use client";
-import { useSearchParams } from "next/navigation";
+
+import { useState, Suspense } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import SearchParamsHandler from "./SearchParamsHandler";
 
-export default function Checkout({ product, offerValue }) {
+export default function Checkout() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-
-  const productName = product?.name || searchParams.get("name") || "Product Name";
-  const productImage = product?.image || searchParams.get("image");
-  const offerPrice = offerValue || searchParams.get("price") || "0.00";
+  const [productDetails, setProductDetails] = useState({
+    productName: "Product Name",
+    productImage: null,
+    offerPrice: "0.00",
+  });
 
   return (
     <>
+      {/* Handle Search Params with Suspense */}
+      <Suspense fallback={<div className="text-center text-gray-500">Loading...</div>}>
+        <SearchParamsHandler setProductDetails={setProductDetails} />
+      </Suspense>
+
       <Header />
       <div className="min-h-screen mt-[60px] bg-gray-50 py-10 flex justify-center items-center">
-        {/* Main Checkout Container */}
         <div className="max-w-7xl w-full bg-white p-8 rounded-2xl shadow-xl border border-gray-100 relative overflow-hidden">
-          {/* Background Gradient Overlay */}
+          {/* Gradient Background Overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 opacity-50 -z-10"></div>
 
           {/* Title */}
-          <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">
-            Secure Checkout
-          </h1>
+          <h1 className="text-3xl font-bold text-center mb-6 text-gray-800">Secure Checkout</h1>
 
-          {/* Grid Layout for Billing Details and Offer Summary */}
+          {/* Grid Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             {/* Billing Details Section */}
             <div className="lg:col-span-2 p-6 border rounded-2xl bg-gray-50 shadow-sm">
@@ -38,13 +42,13 @@ export default function Checkout({ product, offerValue }) {
                   <input
                     type="text"
                     placeholder="First Name"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
                   <input
                     type="text"
                     placeholder="Last Name"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </div>
@@ -53,14 +57,14 @@ export default function Checkout({ product, offerValue }) {
                 <input
                   type="text"
                   placeholder="Company Name (Optional)"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
 
                 {/* Street Address */}
                 <input
                   type="text"
                   placeholder="Street Address"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
 
@@ -69,13 +73,13 @@ export default function Checkout({ product, offerValue }) {
                   <input
                     type="text"
                     placeholder="City"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
                   <input
                     type="text"
                     placeholder="State"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </div>
@@ -85,13 +89,13 @@ export default function Checkout({ product, offerValue }) {
                   <input
                     type="text"
                     placeholder="ZIP Code"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
                   <input
                     type="text"
                     placeholder="Phone"
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                     required
                   />
                 </div>
@@ -100,14 +104,14 @@ export default function Checkout({ product, offerValue }) {
                 <input
                   type="email"
                   placeholder="Email Address"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   required
                 />
 
                 {/* Order Notes (Optional) */}
                 <textarea
                   placeholder="Order Notes (Optional)"
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                 ></textarea>
               </form>
             </div>
@@ -117,10 +121,10 @@ export default function Checkout({ product, offerValue }) {
               <h2 className="text-xl font-semibold mb-4 text-gray-700">Your Offer</h2>
 
               {/* Product Image */}
-              {productImage ? (
+              {productDetails.productImage ? (
                 <Image
-                  src={decodeURIComponent(productImage)}
-                  alt={productName}
+                  src={decodeURIComponent(productDetails.productImage)}
+                  alt={productDetails.productName}
                   width={200}
                   height={200}
                   className="rounded-lg w-full object-cover mb-4 shadow-md"
@@ -130,13 +134,13 @@ export default function Checkout({ product, offerValue }) {
               )}
 
               {/* Product Name */}
-              <p className="text-gray-700 font-medium">{productName}</p>
+              <p className="text-gray-700 font-medium">{productDetails.productName}</p>
 
               {/* Price Breakdown */}
               <div className="mt-4 text-gray-600 space-y-1">
                 <p>
                   Subtotal:{" "}
-                  <span className="font-bold text-lg">${parseFloat(offerPrice).toLocaleString()}</span>
+                  <span className="font-bold text-lg">${parseFloat(productDetails.offerPrice).toLocaleString()}</span>
                 </p>
                 <p>
                   Hold Amount (Non-refundable):{" "}
@@ -145,7 +149,7 @@ export default function Checkout({ product, offerValue }) {
                 <p className="text-lg font-semibold">
                   Total:{" "}
                   <span className="font-bold text-green-600">
-                    ${(parseFloat(offerPrice) - 100).toLocaleString()}
+                    ${(parseFloat(productDetails.offerPrice) - 100).toLocaleString()}
                   </span>
                 </p>
               </div>
