@@ -112,6 +112,17 @@ const Header = () => {
       >
         <div className="container mx-auto md:px-6 px-4">
           <div className="flex items-center justify-between">
+            {/* Mobile View: Search Button (Left) */}
+            {isMobile && (
+              <button
+                className="p-2 text-black font-semibold z-50"
+                onClick={() => setShowSearchBar(!showSearchBar)}
+                aria-label="Toggle search"
+              >
+                <HiSearch className="text-2xl" />
+              </button>
+            )}
+
             {/* Logo (Centered on Mobile, Left-Aligned on Desktop) */}
             <div
               className={`flex items-center ${isMobile ? "w-full justify-center" : ""}`}
@@ -127,45 +138,49 @@ const Header = () => {
               </Link>
             </div>
 
-            {/* Navigation Links (Center) */}
-            <nav
-              className="hidden md:flex space-x-6 text-sm sm:text-base items-center font-medium"
-            >
-              <Link href="/Auctions" className="hover:text-purple-600">
-                Auctions
-              </Link>
-              <Link href="/Buy-now" className="hover:text-purple-600">
-                Buy Now
-              </Link>
-              <Link
-                href="/private-sales"
-                className="hover:text-purple-600"
+            {/* Mobile View: Hamburger Menu (Right) */}
+            {isMobile && (
+              <button
+                className="p-2 text-black font-semibold z-50"
+                onClick={() => setMenuOpen(!menuOpen)}
+                aria-label="Toggle menu"
               >
-                Private Sales
-              </Link>
-              <Link href="/Sell" className="hover:text-purple-600">
-                Sell
-              </Link>
-            </nav>
+                {menuOpen ? (
+                  <HiX className="text-2xl" />
+                ) : (
+                  <HiMenu className="text-2xl" />
+                )}
+              </button>
+            )}
 
-            {/* Search Bar and Menu Button (Right Side) */}
-            <div className="flex items-center gap-2">
-              {/* Search Button for Mobile */}
-              {isMobile && (
-                <button
-                  className="p-2 text-black font-semibold z-50"
-                  onClick={() => setShowSearchBar(!showSearchBar)}
-                  aria-label="Toggle search"
+            {/* Desktop View: Navigation Links and Search */}
+            {!isMobile && (
+              <>
+                {/* Navigation Links (Center) */}
+                <nav
+                  className="hidden md:flex space-x-6 text-sm sm:text-base items-center font-medium"
                 >
-                  <HiSearch className="text-2xl" />
-                </button>
-              )}
+                  <Link href="/Auctions" className="hover:text-purple-600">
+                    Auctions
+                  </Link>
+                  <Link href="/Buy-now" className="hover:text-purple-600">
+                    Buy Now
+                  </Link>
+                  <Link
+                    href="/private-sales"
+                    className="hover:text-purple-600"
+                  >
+                    Private Sales
+                  </Link>
+                  <Link href="/Sell" className="hover:text-purple-600">
+                    Sell
+                  </Link>
+                </nav>
 
-              {/* Search Bar */}
-              {(showSearchBar || !isMobile) && (
+                {/* Search Bar */}
                 <form
                   onSubmit={handleSearch}
-                  className={`relative ${isMobile ? "w-full" : "w-64"} flex-grow md:flex-grow-0`}
+                  className="relative w-64 flex-grow md:flex-grow-0"
                 >
                   <input
                     type="text"
@@ -176,22 +191,26 @@ const Header = () => {
                   />
                   <HiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
                 </form>
-              )}
-
-              {/* Mobile Menu Button */}
-              <button
-                className="md:hidden p-2 text-black font-semibold z-50"
-                onClick={() => setMenuOpen(!menuOpen)}
-                aria-label="Toggle menu"
-              >
-                {menuOpen ? (
-                  <HiX className="text-2xl" />
-                ) : (
-                  <HiMenu className="text-2xl" />
-                )}
-              </button>
-            </div>
+              </>
+            )}
           </div>
+
+          {/* Mobile Search Bar */}
+          {isMobile && showSearchBar && (
+            <form
+              onSubmit={handleSearch}
+              className="relative w-full mt-4"
+            >
+              <input
+                type="text"
+                placeholder="Search..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full px-4 py-2 pl-10 rounded-full border border-gray-300 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all duration-300"
+              />
+              <HiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+            </form>
+          )}
 
           {/* Mobile Menu */}
           {menuOpen && (
