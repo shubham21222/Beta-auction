@@ -14,11 +14,15 @@
   }
 }
 
+
+
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 } */
+
+/* Hide the Google Translate logo */
 
 .noscroll {
   height: 100%;

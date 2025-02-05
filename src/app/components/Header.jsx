@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import LoginModal from './LoginModal';
 import SignupModal from "./SignupModal";
+import GoogleTranslate from "./GoogleTranslate";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,10 +41,11 @@ const Header = () => {
         <div className="container mx-auto px-4 h-10 flex items-center justify-between">
           {/* Left Section: Language Selector */}
           <div className="flex items-center gap-2">
-            <button className="hover:text-gray-600 text-sm">
-              <span>EN</span>
-              <span className="ml-1">▼</span>
-            </button>
+            
+              <GoogleTranslate />
+              {/* <span>EN</span>
+              <span className="ml-1">▼</span> */}
+            
           </div>
 
           {/* Right Section: Links and Buttons */}
