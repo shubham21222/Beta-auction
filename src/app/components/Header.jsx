@@ -109,7 +109,7 @@ const Header = () => {
           backdropFilter: isScrolled ? "blur(20px)" : "none",
         }}
       >
-        <div className="container mx-auto px-6">
+        <div className="container mx-auto md:px-6 px-4">
           <div className="flex items-center justify-between">
             {/* Logo (Left Side) */}
             <div className="flex items-center">
@@ -148,7 +148,7 @@ const Header = () => {
             {/* Search Bar (Right Side) */}
             <form
               onSubmit={handleSearch}
-              className="relative w-full md:w-auto flex-grow md:flex-grow-0"
+              className="relative w-[70%] md:w-auto flex-grow md:flex-grow-0"
             >
               <input
                 type="text"
@@ -177,7 +177,7 @@ const Header = () => {
           {/* Mobile Menu */}
           {menuOpen && (
             <nav className="absolute top-full left-0 w-full bg-white text-black rounded-lg shadow-lg z-50 md:hidden mt-2">
-              <div className="flex flex-col items-center text-sm font-medium space-y-4 px-6 py-4">
+              <div className="flex flex-col items-center text-sm font-medium space-y-2  py-4">
                 <button className="hover:text-gray-600 text-sm">
                   <span>EN</span>
                   <span className="ml-1">▼</span>
