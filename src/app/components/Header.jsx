@@ -36,7 +36,7 @@ const Header = () => {
   return (
     <>
       {/* Top Bar */}
-      <div className="border-b z-50 relative">
+      <div className="hidden md:block  border-b z-50 relative">
         <div className="container mx-auto px-4 h-10 flex items-center justify-between">
           {/* Left Section: Language Selector */}
           <div className="flex items-center gap-2">
@@ -68,7 +68,7 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu Toggle */}
-          <div className="md:hidden z-50">
+          {/* <div className="md:hidden z-50">
             <button
               className="text-gray-600 hover:text-gray-800 focus:outline-none"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -95,10 +95,10 @@ const Header = () => {
                 </svg>
               )}
             </button>
-          </div>
+          </div> */}
 
           {/* Mobile Menu */}
-          {isMenuOpen && (
+          {/* {isMenuOpen && (
             <div className="md:hidden absolute top-10 right-0 bg-white shadow-lg rounded-lg w-48 z-50">
               <div className="flex flex-col space-y-2 p-4">
                 <Link href="#" className="hover:text-gray-600">
@@ -120,13 +120,13 @@ const Header = () => {
                 </button>
               </div>
             </div>
-          )}
+          )} */}
         </div>
       </div>
 
       {/* Main Header */}
       <header
-        className={`fixed top-9 left-0 z-40 right-0 transition-all duration-300 w-full max-w-screen-xl mx-auto ${isScrolled
+        className={`fixed md:top-9 top-4  left-0 z-40 right-0 transition-all duration-300 w-full max-w-screen-xl mx-auto ${isScrolled
           ? "bg-white/5 shadow-lg rounded-full text-black border border-white/18"
           : "bg-transparent text-white"
           }`}
@@ -194,6 +194,24 @@ const Header = () => {
             {menuOpen && (
               <nav className="absolute top-full left-0 w-full bg-white text-black rounded-lg shadow-lg z-50 md:hidden">
                 <div className="flex flex-col items-center text-sm font-medium space-y-4 px-6 py-4">
+
+                  <Link href="#" className="hover:text-purple-600">
+                    EXCLUSIVE ACCESS
+                  </Link>
+                  <Link href="#" className="hover:text-purple-600">
+                    ABOUT
+                  </Link>
+                  <Link href="#" className="hover:text-purple-600">
+                    PAST AUCTIONS
+                  </Link>
+                  <Link href="#" className="hover:text-purple-600">
+                    FAQ
+                  </Link>
+                  <button
+                    className="bg-[#002654] hover:bg-[#002654]/90 text-white rounded px-4 py-1 text-sm mt-2"
+                  >
+                    MY ACCOUNT ▼
+                  </button>
                   <Link href="/Auctions" className="hover:text-purple-600">
                     Auctions
                   </Link>
