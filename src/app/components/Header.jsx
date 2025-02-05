@@ -14,6 +14,7 @@ const Header = () => {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showSignupModal, setShowSignupModal] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [showSearchBar, setShowSearchBar] = useState(false); // New state for search bar visibility
 
   useEffect(() => {
     const handleScroll = () => {
@@ -111,8 +112,10 @@ const Header = () => {
       >
         <div className="container mx-auto md:px-6 px-4">
           <div className="flex items-center justify-between">
-            {/* Logo (Left Side) */}
-            <div className="flex items-center">
+            {/* Logo (Centered on Mobile, Left-Aligned on Desktop) */}
+            <div
+              className={`flex items-center ${isMobile ? "w-full justify-center" : ""}`}
+            >
               <Link href="/" className="flex-grow-0">
                 <Image
                   src="https://img1.wsimg.com/isteam/ip/05b280c7-f839-4e4d-9316-4bf01d28f2df/logo/b9e8f767-116c-4444-aab2-66386e072ec2.png"
@@ -145,39 +148,55 @@ const Header = () => {
               </Link>
             </nav>
 
-            {/* Search Bar (Right Side) */}
-            <form
-              onSubmit={handleSearch}
-              className="relative w-[70%] md:w-auto flex-grow md:flex-grow-0"
-            >
-              <input
-                type="text"
-                placeholder="Search..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full md:w-64 px-4 py-2 pl-10 rounded-full border border-gray-300 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all duration-300"
-              />
-              <HiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
-            </form>
-
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden p-2 text-black font-semibold z-50"
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Toggle menu"
-            >
-              {menuOpen ? (
-                <HiX className="text-2xl" />
-              ) : (
-                <HiMenu className="text-2xl" />
+            {/* Search Bar and Menu Button (Right Side) */}
+            <div className="flex items-center gap-2">
+              {/* Search Button for Mobile */}
+              {isMobile && (
+                <button
+                  className="p-2 text-black font-semibold z-50"
+                  onClick={() => setShowSearchBar(!showSearchBar)}
+                  aria-label="Toggle search"
+                >
+                  <HiSearch className="text-2xl" />
+                </button>
               )}
-            </button>
+
+              {/* Search Bar */}
+              {(showSearchBar || !isMobile) && (
+                <form
+                  onSubmit={handleSearch}
+                  className={`relative ${isMobile ? "w-full" : "w-64"} flex-grow md:flex-grow-0`}
+                >
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full px-4 py-2 pl-10 rounded-full border border-gray-300 focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500 transition-all duration-300"
+                  />
+                  <HiSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500" />
+                </form>
+              )}
+
+              {/* Mobile Menu Button */}
+              <button
+                className="md:hidden p-2 text-black font-semibold z-50"
+                onClick={() => setMenuOpen(!menuOpen)}
+                aria-label="Toggle menu"
+              >
+                {menuOpen ? (
+                  <HiX className="text-2xl" />
+                ) : (
+                  <HiMenu className="text-2xl" />
+                )}
+              </button>
+            </div>
           </div>
 
           {/* Mobile Menu */}
           {menuOpen && (
             <nav className="absolute top-full left-0 w-full bg-white text-black rounded-lg shadow-lg z-50 md:hidden mt-2">
-              <div className="flex flex-col items-center text-sm font-medium space-y-2  py-4">
+              <div className="flex flex-col items-center text-sm font-medium space-y-2 py-4">
                 <button className="hover:text-gray-600 text-sm">
                   <span>EN</span>
                   <span className="ml-1">▼</span>
